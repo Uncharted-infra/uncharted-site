@@ -384,3 +384,9 @@ Ask which mode:
 **2 — SMALL CHANGE:** one question per review section
 
 Do not assume priorities or timelines.
+
+---
+
+## Alignment with repo execution docs
+
+Marketing language should stay consistent with **`../docs/`**: **[`../docs/icp-and-product-edges.md`](../docs/icp-and-product-edges.md)**, **[`../docs/competitive-positioning.md`](../docs/competitive-positioning.md)**. Shared vocabulary (phases, edges, north-star checkout): **[`../docs/doc-map-and-conventions.md`](../docs/doc-map-and-conventions.md)**.

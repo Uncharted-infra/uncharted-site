@@ -16,6 +16,9 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { mapAppOrigin } from "@/lib/map-app";
+
+const MAP_APP_ORIGIN = mapAppOrigin();
 
 const smoothScrollTo = (elementId: string) => {
   const element = document.getElementById(elementId);
@@ -43,6 +46,7 @@ const NAV_ITEMS: Array<
   | { name: string; link: string }
   | { name: string; link: string; isDropdown: true }
 > = [
+  { name: "Map", link: MAP_APP_ORIGIN },
   { name: "Features", link: "/#features" },
   { name: "Pricing", link: "/resources/pricing" },
   { name: "Resources", link: "/resources", isDropdown: true },

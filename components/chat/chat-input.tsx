@@ -4,6 +4,7 @@ import * as React from "react";
 import { Plane, Car, Bus, Ship } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { Button } from "@/components/ui/button";
+import { mapAppUrl } from "@/lib/map-app";
 import { cn } from "@/lib/utils";
 import TypingText from "@/components/ui/typing-text";
 
@@ -44,9 +45,11 @@ export function ChatInput() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!value.trim()) return;
-    setValue("");
+    const trimmed = value.trim();
+    if (!trimmed) return;
     resetHeight();
+    setValue("");
+    window.location.assign(mapAppUrl({ q: trimmed }));
   }
 
   function handleSuggestion(prompt: string) {
