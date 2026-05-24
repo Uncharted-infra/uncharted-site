@@ -16,9 +16,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { mapAppOrigin } from "@/lib/map-app";
-
-const MAP_APP_ORIGIN = mapAppOrigin();
+import { PROD_MAP_ORIGIN } from "@/lib/map-app";
 
 const smoothScrollTo = (elementId: string) => {
   const element = document.getElementById(elementId);
@@ -46,7 +44,7 @@ const NAV_ITEMS: Array<
   | { name: string; link: string }
   | { name: string; link: string; isDropdown: true }
 > = [
-  { name: "Map", link: MAP_APP_ORIGIN },
+  { name: "Map", link: PROD_MAP_ORIGIN },
   { name: "Features", link: "/#features" },
   { name: "Pricing", link: "/resources/pricing" },
   { name: "Resources", link: "/resources", isDropdown: true },
@@ -515,10 +513,10 @@ export function Header() {
         <NavbarLogo />
         <NavItems />
         <div className="flex items-center gap-2">
-          <NavbarButton href="/login" variant="ghost" className="font-navbar-title">
+          <NavbarButton href={`${PROD_MAP_ORIGIN}/login`} variant="ghost" className="font-navbar-title">
             Sign in
           </NavbarButton>
-          <NavbarButton href="/signup" variant="default" className="font-navbar-title rounded-full">
+          <NavbarButton href={`${PROD_MAP_ORIGIN}/signup`} variant="default" className="font-navbar-title rounded-full">
             Get started for free
           </NavbarButton>
           <DayNightSwitch className="ml-[15px]" />
@@ -571,7 +569,7 @@ export function Header() {
             className="font-navbar-title w-full"
             onClick={(e) => {
               (e.currentTarget as HTMLElement).blur();
-              router.push("/login");
+              window.location.href = `${PROD_MAP_ORIGIN}/login`;
               setOpen(false);
             }}
           >
@@ -581,7 +579,7 @@ export function Header() {
             className="font-navbar-title w-full rounded-full"
             onClick={(e) => {
               (e.currentTarget as HTMLElement).blur();
-              router.push("/signup");
+              window.location.href = `${PROD_MAP_ORIGIN}/signup`;
               setOpen(false);
             }}
           >

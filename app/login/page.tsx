@@ -1,7 +1,9 @@
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
-import { mapAuthUrl } from "@/lib/map-app";
+import { mapAuthUrlForHost } from "@/lib/map-app";
 
-export default function LoginPage() {
-  redirect(mapAuthUrl("/login"));
+export default async function LoginPage() {
+  const host = (await headers()).get("host");
+  redirect(mapAuthUrlForHost("/login", host));
 }
