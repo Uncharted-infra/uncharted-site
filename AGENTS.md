@@ -1,6 +1,6 @@
 # AGENTS.md — Uncharted Context + Cursor Plan Mode
 
-Uncharted is an **AI travel agent**, not a general chatbot and not a generic SaaS dashboard.
+Uncharted is an **AI travel agent**, not a general chatbot and not a generic SaaS dashboard. 
 
 Users talk to Uncharted to **explore destinations, plan trips, and book real travel**.
 
