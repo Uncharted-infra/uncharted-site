@@ -45,11 +45,18 @@ export function mapAuthUrl(path: "/login" | "/signup"): string {
 /** Server-side auth redirect — always map.uncharted.sh when host is uncharted.sh. */
 export function mapAuthUrlForHost(
   path: "/login" | "/signup",
-  host: string | null
+  host: string | null,
+  next?: string | null
 ): string {
   const normalizedHost = host?.split(":")[0] ?? "";
-  if (isProductionHost(normalizedHost)) {
-    return `${PROD_MAP_ORIGIN}${path}`;
+  const origin = isProductionHost(normalizedHost)
+    ? PROD_MAP_ORIGIN
+    : mapAppOrigin();
+  const url = new URL(path, origin);
+
+  if (next?.trim()) {
+    url.searchParams.set("next", next);
   }
-  return mapAuthUrl(path);
+
+  return url.toString();
 }

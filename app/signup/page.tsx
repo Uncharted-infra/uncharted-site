@@ -3,7 +3,12 @@ import { redirect } from "next/navigation";
 
 import { mapAuthUrlForHost } from "@/lib/map-app";
 
-export default async function SignupPage() {
+export default async function SignupPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ next?: string }>;
+}) {
   const host = (await headers()).get("host");
-  redirect(mapAuthUrlForHost("/signup", host));
+  const { next } = await searchParams;
+  redirect(mapAuthUrlForHost("/signup", host, next));
 }
