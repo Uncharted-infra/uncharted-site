@@ -2,11 +2,11 @@ node_modules
 .next
 .source
 out
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
 *.tsbuildinfo
 next-env.d.ts
 .vercel
+
+# Secrets — never commit (only .env.example is tracked)
+.env
+.env.*
+!.env.example

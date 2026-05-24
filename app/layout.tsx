@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { ConditionalLayout } from "@/components/layout/conditional-layout";
+import { ThemeFavicon } from "@/components/theme-favicon";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
+import { themeFaviconMetadata } from "@/lib/favicon-metadata";
 import "./globals.css";
 
 const inter = Inter({
@@ -14,9 +16,7 @@ export const metadata: Metadata = {
   title: "Uncharted",
   description:
     "Plan trips, book travel, and explore the world with your AI travel agent in your pocket.",
-  icons: {
-    icon: "/favicon-32x32.png",
-  },
+  icons: themeFaviconMetadata,
 };
 
 export default function RootLayout({
@@ -31,6 +31,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ThemeProvider>
+          <ThemeFavicon />
           <ConditionalLayout>{children}</ConditionalLayout>
         </ThemeProvider>
         <Analytics />
