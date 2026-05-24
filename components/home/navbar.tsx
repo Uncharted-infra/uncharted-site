@@ -397,21 +397,13 @@ export function NavbarLogo() {
   return (
     <a
       href="/"
-      className="relative z-20 flex items-center gap-2 bg-transparent transition-opacity hover:opacity-80"
+      className="relative z-20 flex items-center bg-transparent transition-opacity hover:opacity-80"
       onClick={(e) => {
         e.preventDefault();
         router.push("/");
         (e.currentTarget as HTMLElement).blur();
       }}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/logo.png"
-        alt=""
-        width={32}
-        height={32}
-        className="block"
-      />
       <span className="font-navbar-title text-lg font-medium tracking-tight">
         Uncharted
       </span>
