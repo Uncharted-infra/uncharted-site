@@ -23,9 +23,9 @@ Consumer marketplace routes (`/shops`, `/cart`, `/checkout`, `/flavors`, `/owner
 
 - Design source of truth: [`../docs/design-system.md`](../docs/design-system.md). Tokens duplicated in `src/app/globals.css`.
 - **Components: shadcn/ui** (`src/components/ui/`, base-nova style, Base UI + cva + `cn` package). Add via `pnpm dlx shadcn@latest add <component>`.
-- Palette: cream canvas, ink foreground, caramel primary, flavor accents (strawberry/matcha/blueberry) as accents only.
+- Palette: sand canvas (#F3E5C8), black ink + 2px black borders with hard 4px offset shadows, red main (#FF4B4B), blue accent (#3D8BFF), white cards. Neobrutalism (neobrutalism.dev components on Base UI).
 - Fonts: Bricolage Grotesque (display/heading), Instrument Sans (body), Space Mono (prices/labels). Do not add others.
-- Feel: playful, cool, sleek — product-first, not crafty.
+- Feel: neobrutalist — bold, playful, colorful; chunky type, hard shadows, no gradients/blur.
 - Seeded shops are **fictional** Alpharetta shops — never list real businesses without permission.
 - Brand name is **Uncharted** — never "Uncharted Sweets"; no Slice branding/references.
 

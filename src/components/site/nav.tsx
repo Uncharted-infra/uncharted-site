@@ -1,33 +1,35 @@
 import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 
 const mapOrigin = process.env.NEXT_PUBLIC_MAP_ORIGIN ?? "http://localhost:3001";
 
 export function Nav() {
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-sm">
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-5">
+    <header className="sticky top-0 z-50 border-b-4 border-border bg-background">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
         <Link href="/" className="flex items-center gap-2">
-          <span className="inline-block size-3.5 rounded-[4px] bg-caramel" />
-          <span className="font-display text-lg font-medium tracking-tight">Uncharted</span>
+          <span className="inline-block size-4 border-2 border-border bg-main" />
+          <span className="font-display text-xl font-extrabold tracking-tight">
+            Uncharted
+          </span>
         </Link>
-        <nav className="hidden items-center gap-6 font-mono text-xs tracking-wide uppercase md:flex">
+        <nav className="flex items-center gap-6">
           <a
             href={`${mapOrigin}/dashboard`}
-            className="text-muted-foreground transition-colors hover:text-foreground"
+            className="text-sm font-bold transition-colors hover:text-main"
           >
             Demo
           </a>
           <a
             href={`${mapOrigin}/login`}
-            className="text-muted-foreground transition-colors hover:text-foreground"
+            className="text-sm font-bold transition-colors hover:text-main"
           >
             Sign in
           </a>
+          <Button render={<a href={`${mapOrigin}/signup`} />} size="sm">
+            Claim your shop
+          </Button>
         </nav>
-        <a href={`${mapOrigin}/signup`} className={buttonVariants({ size: "sm" })}>
-          Claim your shop
-        </a>
       </div>
     </header>
   );
