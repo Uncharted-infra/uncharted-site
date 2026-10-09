@@ -22,7 +22,7 @@ export function Footer() {
             <div className="flex flex-col gap-2">
               <span className="font-bold text-muted-foreground">For owners</span>
               <a href={`${mapOrigin}/signup`} className="font-bold hover:text-main">
-                Claim your shop
+                Sign up
               </a>
               <a href={`${mapOrigin}/dashboard`} className="font-bold hover:text-main">
                 See the demo
@@ -33,9 +33,12 @@ export function Footer() {
             </div>
             <div className="flex flex-col gap-2">
               <span className="font-bold text-muted-foreground">Product</span>
-              <a href={`${mapOrigin}/dashboard`} className="font-bold hover:text-main">
-                Dashboard
-              </a>
+              <Link href="/platform" className="font-bold hover:text-main">
+                Platform
+              </Link>
+              <Link href="/pricing" className="font-bold hover:text-main">
+                Pricing
+              </Link>
               <Link href="/#faq" className="font-bold hover:text-main">
                 FAQ
               </Link>

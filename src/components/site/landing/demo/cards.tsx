@@ -12,11 +12,14 @@ import type { FlavorTrend } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import {
   inventory,
+  orders,
   reorderSoon,
   revenueByDay,
   statCards,
+  suggestedCombos,
   topItems,
   type InventoryRow,
+  type Order,
 } from "./mock-data";
 
 const STAT_FILLS = [
@@ -56,7 +59,7 @@ export function RevenueChartCard() {
       <CardContent>
         <div className="flex h-32 items-end gap-2">
           {revenueByDay.map((d, i) => (
-            <div key={d.day} className="flex flex-1 flex-col items-center gap-1.5">
+            <div key={d.day} className="flex h-full flex-1 flex-col items-center justify-end gap-1.5">
               <div
                 className={cn(
                   "w-full rounded-t-base border-2 border-border",
@@ -188,6 +191,73 @@ export function InventoryTable({ rows = inventory }: { rows?: InventoryRow[] }) 
             ))}
           </TableBody>
         </Table>
+      </CardContent>
+    </Card>
+  );
+}
+
+const ORDER_STATUS_STYLES: Record<Order["status"], string> = {
+  Ready: "bg-blue",
+  Preparing: "bg-main text-main-foreground",
+  "Picked up": "bg-secondary-background",
+};
+
+export function OrdersTable({ rows = orders }: { rows?: Order[] }) {
+  return (
+    <Card className="gap-0 py-0">
+      <CardContent className="px-0">
+        <Table>
+          <TableHeader>
+            <TableRow className="bg-sand-deep">
+              <TableHead className="h-9 pl-4 font-mono text-[10px] font-bold uppercase">#</TableHead>
+              <TableHead className="h-9 font-mono text-[10px] font-bold uppercase">Customer</TableHead>
+              <TableHead className="h-9 font-mono text-[10px] font-bold uppercase">Items</TableHead>
+              <TableHead className="h-9 font-mono text-[10px] font-bold uppercase">Pickup</TableHead>
+              <TableHead className="h-9 pr-4 text-right font-mono text-[10px] font-bold uppercase">
+                Status
+              </TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {rows.map((o) => (
+              <TableRow key={o.id}>
+                <TableCell className="py-2.5 pl-4 font-mono text-xs font-bold">{o.id}</TableCell>
+                <TableCell className="py-2.5 font-medium">{o.customer}</TableCell>
+                <TableCell className="py-2.5 text-muted-foreground">{o.items}</TableCell>
+                <TableCell className="py-2.5 font-mono text-xs font-bold text-muted-foreground">
+                  {o.pickup}
+                </TableCell>
+                <TableCell className="py-2.5 pr-4 text-right">
+                  <Badge className={cn("font-mono font-bold", ORDER_STATUS_STYLES[o.status])}>
+                    {o.status}
+                  </Badge>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </CardContent>
+    </Card>
+  );
+}
+
+export function SuggestedCombosCard() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="font-mono text-[11px] font-normal tracking-wide uppercase text-muted-foreground">
+          Try next
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <ul className="flex flex-col gap-4">
+          {suggestedCombos.map((c) => (
+            <li key={c.name}>
+              <p className="text-sm font-medium">{c.name}</p>
+              <p className="mt-0.5 text-xs text-muted-foreground">{c.note}</p>
+            </li>
+          ))}
+        </ul>
       </CardContent>
     </Card>
   );
