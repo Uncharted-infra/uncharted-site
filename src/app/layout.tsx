@@ -6,7 +6,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Uncharted",
+  title: { default: "Uncharted", template: "%s · Uncharted" },
   description: "The platform for independent sweet shops — orders, inventory, and flavor insights.",
 };
 

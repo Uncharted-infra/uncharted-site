@@ -9,7 +9,7 @@ export const ENTRIES: Entry[] = [
   {
     keywords: ["signup", "sign", "join", "claim", "onboard", "start", "started", "register", "long", "minutes"],
     answer:
-      "Claiming your shop takes about ten minutes. You tell us your hours and pickup details, and your storefront is live.",
+      "Signing up takes about ten minutes. You tell us your hours and pickup details, and your storefront is live.",
   },
   {
     keywords: ["website", "storefront", "menu", "site", "page", "hours", "online"],
@@ -74,7 +74,7 @@ export const ENTRIES: Entry[] = [
 ];
 
 export const FALLBACK =
-  "I don't have a good answer for that yet. Claim your shop and tell us what you need — we're building this with owners, and the roadmap follows real questions.";
+  "I don't have a good answer for that yet. Sign up and tell us what you need — we're building this with owners, and the roadmap follows real questions.";
 
 const STOPWORDS = new Set([
   "a", "an", "the", "is", "it", "do", "does", "i", "my", "can", "how",

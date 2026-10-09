@@ -9,7 +9,10 @@ Stack: Next.js 16 (App Router) + React 19 + Tailwind v4 + TypeScript strict + **
 Uncharted is a **platform for independent sweets-shop owners** — not a physical store and (for now) not a consumer ordering marketplace. The site's job is owner acquisition:
 
 - `/` — landing. Owner-first pitch: hero + product-mock dashboard preview, flavor-trend marquee, how-it-works, network insights, CTA.
-- All conversion CTAs point to the map app: `/dashboard` (demo), `/signup` (claim shop), `/login`.
+- `/platform` — module tour (Overview, Orders, Inventory, Flavor Lab) built from the demo cards + how-it-works steps.
+- `/pricing` — free-while-building plan, early shop promise, roadmap, pricing FAQ.
+- Nav: Uncharted · Home · Platform · Pricing · Log in.
+- All conversion CTAs point to the map app: `/dashboard` (demo), `/signup` (CTA label: "Sign up" — never "Claim your shop"), `/login`.
 
 Consumer marketplace routes (`/shops`, `/cart`, `/checkout`, `/flavors`, `/owners`) were built then **cut** — do not restore without user direction. Seed data layer remains for future reuse.
 

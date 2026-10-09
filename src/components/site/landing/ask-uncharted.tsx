@@ -57,7 +57,7 @@ export function AskUncharted() {
   };
 
   return (
-    <div>
+    <div className="mt-8">
       <form
         className="flex items-center gap-3 rounded-base border-2 border-border bg-secondary-background px-4 py-3 shadow-shadow"
         onSubmit={(e) => {

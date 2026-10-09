@@ -75,7 +75,7 @@ export function Hero() {
               render={<a href={`${mapOrigin}/signup`} />}
               className={cn(rise, "[animation-delay:350ms]")}
             >
-              Claim your shop
+              Sign up
             </Button>
             <Button
               render={

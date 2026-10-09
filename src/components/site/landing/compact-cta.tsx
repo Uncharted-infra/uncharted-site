@@ -19,7 +19,7 @@ export function CompactCta() {
               variant="neutral"
               className="h-11 px-5 text-base"
             >
-              Claim your shop
+              Sign up
             </Button>
             <Button
               render={<a href={`${mapOrigin}/dashboard`} />}
